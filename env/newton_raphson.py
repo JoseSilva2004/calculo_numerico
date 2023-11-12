@@ -21,7 +21,7 @@ def verificarConvergencia(funcion, primera_derivada, segunda_derivada) -> float:
     converge = funcion(x0) * segunda_derivada / pow(primera_derivada, 2)
 
     if (abs(converge) < 1): ##Si el resultado es menor que 1 es porque converge, de lo contrario hay que ir a la formula iterativa
-        print(f"La funcion convergera en el punto {x0}")
+        print(f"\nLa funcion convergera en el punto {x0}")
     else:
         print("El teorema de Newton-Raphson no decide")
     
@@ -46,11 +46,11 @@ def newton_raphson(x0, margen_error, max_iteraciones):
     if iteracion == max_iteraciones:
         print("El método no converge después de", max_iteraciones, "iteraciones.")
     else:
-        print("La raíz es:", x, "después de", iteracion, "iteraciones.")
+        print("\nLa raíz es:", x, "después de", iteracion, "iteraciones.")
         return x
 
 if __name__ == '__main__':
-    # Definir el punto inicial, la tolerancia y el número máximo de iteraciones
+    # Definir el punto inicial, el margen de error y el número máximo de iteraciones
     x0 = 0.5
     margen_error = 0.002
     max_iteraciones = 100
