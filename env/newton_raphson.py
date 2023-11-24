@@ -14,6 +14,7 @@ def function(x):
 
 ##Funcion para verificar si la funcion converge o no
 def verificarConvergencia(funcion, primera_derivada, segunda_derivada) -> float:  ##Recibe como parametro la funcion, la primera y segunda derivada
+    #Defino los intervalos y el punto medio
     a = 1
     b = 2
     x0 = a / b
