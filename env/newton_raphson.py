@@ -32,7 +32,6 @@ print(verificarConvergencia(function, first_derivate(function,0.5), second_deriv
 
 # ##Funcion para el metodo de newton-raphson
 def newton_raphson(x0, margen_error, max_iteraciones):
-    x0 = 0.5
     iteracion = 0
     error_relativo = 1
     x = x0
