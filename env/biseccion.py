@@ -7,7 +7,7 @@ import math as ma
     la raíz de una función
 
 '''
-def Biseccion(fx, a, b, N, limite_iter = 100):
+def Biseccion(fx, a, b, N, limite_iter = 100):  # N es el margen de error que se pasa como argumento
     
     #Aqui se verifica que fx(a) y fx(b) tengan signos opuestos
     if fx(a) * fx(b) >= 0:
@@ -42,9 +42,11 @@ def Biseccion(fx, a, b, N, limite_iter = 100):
         return c
 
 def funcion(x):
-    return ma.exp(x) - 3*x**2
+    return ma.exp(x) - 3*x**2   #Defino la funcion en la cual se va a evaluar
 
 if __name__ == '__main__':
     raiz = Biseccion(funcion, 0, 1, 0.04)
+    comprobacion = funcion(raiz)
     print(raiz)
+    print("\nEl resultado de la comprobacion es: ",abs(comprobacion))   #Comprobacion del resultado de la raiz(debe ser cercano a 0)
 

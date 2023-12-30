@@ -1,4 +1,6 @@
 import math as ma
+#Calculo Numerico
+#Realizado por Jose Silva. CI: 30230054
 
 def first_derivate(funcion, x, h=0.02): ##Calcular primera derivada
     primera_derivada = (funcion(x + h) - funcion(x)) / h   
