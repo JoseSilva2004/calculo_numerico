@@ -17,7 +17,7 @@ def Biseccion(fx, a, b, N, limite_iter = 100):  # N es el margen de error que se
     c = (a + b) / 2
     error = abs(b - a)
     iteraciones = 0
-    #iterar hasta que se alcanze la cantidad desea
+    #iterar hasta que se alcance la cantidad deseada
     while error > N and iteraciones <= limite_iter:
         iteraciones += 1
         #Calcular el valor de la funcion en el punto medio
