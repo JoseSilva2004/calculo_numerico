@@ -2,11 +2,11 @@ import math as ma
 #Calculo Numerico
 #Realizado por Jose Silva. CI: 30230054
 
-def first_derivate(funcion, x, h=0.02): ##Calcular primera derivada
+def first_derivative(funcion, x, h=0.02): ##Calcular primera derivada
     primera_derivada = (funcion(x + h) - funcion(x)) / h   
     return primera_derivada
 
-def second_derivate(funcion, x, h=0.02): ##Calcular segunda derivada
+def second_derivative(funcion, x, h=0.02): ##Calcular segunda derivada
     segunda_derivada = (funcion(x + 2 * h) - 2 * funcion(x + h) + funcion(x)) / (h ** 2)
     return segunda_derivada
 
@@ -34,7 +34,7 @@ def newton_raphson(fx, x0, margen_error, max_iteraciones):
     x = x0
 
     while error_relativo > margen_error and iteracion < max_iteraciones:
-        x_nuevo = x - fx(x) / first_derivate(fx,x)
+        x_nuevo = x - fx(x) / first_derivative(fx,x)
         error_relativo = abs(x_nuevo - x)
         x = x_nuevo
         iteracion += 1
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     margen_error = 0.02
     max_iteraciones = 100
     
-    verificarConvergencia(function, x0, first_derivate(function,x0), second_derivate(function,x0))
+    verificarConvergencia(function, x0, first_derivative(function,x0), second_derivative(function,x0))
     resultado = newton_raphson(function, x0, margen_error, max_iteraciones)
     comprobacion = function(resultado)
     print("\nEl resultado de la comprobacion es: ", abs(comprobacion))

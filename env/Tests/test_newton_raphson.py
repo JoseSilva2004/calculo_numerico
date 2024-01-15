@@ -13,7 +13,7 @@ class TestNewtonRaphson(unittest.TestCase):
         margen_error = 0.01
         funcion = lambda x: 1 - x**2 - ma.atan(x)
 
-        verificarConvergencia(funcion,x0,first_derivate(funcion,x0),second_derivate(funcion,x0))
+        verificarConvergencia(funcion,x0,first_derivative(funcion,x0),second_derivative(funcion,x0))
         self.assertLess(abs(funcion(newton_raphson(funcion,x0,margen_error,max_iteraciones))),margen_error)
         print("\n**********************************************************")
 
@@ -23,7 +23,7 @@ class TestNewtonRaphson(unittest.TestCase):
         margen_error = 0.01
         funcion = lambda x: ma.cos(x) - x
 
-        verificarConvergencia(funcion,x0,first_derivate(funcion,x0), second_derivate(funcion,x0))
+        verificarConvergencia(funcion,x0,first_derivative(funcion,x0), second_derivative(funcion,x0))
         self.assertLess(abs(funcion(newton_raphson(funcion,x0,margen_error,max_iteraciones))),margen_error)
 
 
