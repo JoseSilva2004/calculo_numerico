@@ -15,11 +15,7 @@ def function(x):
 
 
 ##Funcion para verificar si la funcion converge o no
-def verificarConvergencia(funcion, primera_derivada, segunda_derivada) -> float:  ##Recibe como parametro la funcion, la primera y segunda derivada
-    #Defino los intervalos y el punto medio
-    a = 1
-    b = 2
-    x0 = a / b
+def verificarConvergencia(funcion, x0, primera_derivada, segunda_derivada) -> float:  ##Recibe como parametro la funcion, la primera y segunda derivada
 
     converge = funcion(x0) * segunda_derivada / pow(primera_derivada, 2)
 
@@ -30,23 +26,22 @@ def verificarConvergencia(funcion, primera_derivada, segunda_derivada) -> float:
     
     return abs(converge)
 
-print(verificarConvergencia(function, first_derivate(function,0.5), second_derivate(function,0.5)))
 
 # ##Funcion para el metodo de newton-raphson
-def newton_raphson(x0, margen_error, max_iteraciones):
+def newton_raphson(fx, x0, margen_error, max_iteraciones):
     iteracion = 0
     error_relativo = 1
     x = x0
 
     while error_relativo > margen_error and iteracion < max_iteraciones:
-        x_nuevo = x - function(x) / first_derivate(function,x)
+        x_nuevo = x - fx(x) / first_derivate(fx,x)
         error_relativo = abs(x_nuevo - x)
         x = x_nuevo
         iteracion += 1
 
     # Imprimir el resultado
-    if iteracion == max_iteraciones:
-        print("El método no converge después de", max_iteraciones, "iteraciones.")
+    if iteracion >= max_iteraciones:
+        print("El método de Newton Raphson Diverge")
     else:
         print("\nLa raíz es:", x, "después de", iteracion, "iteraciones.")
         return x
@@ -54,9 +49,10 @@ def newton_raphson(x0, margen_error, max_iteraciones):
 if __name__ == '__main__':
     # Definir el punto inicial, el margen de error y el número máximo de iteraciones
     x0 = 0.5
-    margen_error = 0.002
+    margen_error = 0.02
     max_iteraciones = 100
     
-    resultado = newton_raphson(x0, margen_error, max_iteraciones)
+    verificarConvergencia(function, x0, first_derivate(function,x0), second_derivate(function,x0))
+    resultado = newton_raphson(function, x0, margen_error, max_iteraciones)
     comprobacion = function(resultado)
     print("\nEl resultado de la comprobacion es: ", abs(comprobacion))
