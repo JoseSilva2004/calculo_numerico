@@ -7,7 +7,7 @@ from newton_raphson import *
 
 #Declaro la clase para probar el metodo de newton raphson
 class TestNewtonRaphson(unittest.TestCase):
-    def test_newthon_raphson1(self):
+    def test_newton_raphson1(self):
         x0 = 0.5
         max_iteraciones = 100
         margen_error = 0.01
@@ -17,7 +17,7 @@ class TestNewtonRaphson(unittest.TestCase):
         self.assertLess(abs(funcion(newton_raphson(funcion,x0,margen_error,max_iteraciones))),margen_error)
         print("\n**********************************************************")
 
-    def test_newthon_raphson2(self):
+    def test_newton_raphson2(self):
         x0 = 1
         max_iteraciones = 100
         margen_error = 0.01
