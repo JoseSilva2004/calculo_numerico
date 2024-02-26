@@ -48,14 +48,14 @@ class Tests(unittest.TestCase):
         #Variables
         a, b, n = 0, 1, 10000
         funcion = lambda x: x**2
-        self.assertLess(Suma_Rieman(funcion,a,b,n), 1)
+        self.assertAlmostEqual(Suma_Rieman(funcion,a,b,n),0.33328333499999957,places=1)
 
     def test_trapecio(self):
         #Variables
-        a, b, n = 1, 2, 100000
+        a, b, n = 0, 1, 10000
         funcion = lambda x: 3*x*ma.cos(x**2)
 
-        self.assertLess(Trapecio(funcion,a,b,n), 2)
+        self.assertAlmostEqual(Trapecio(funcion,a,b,n),1.2622064718552477,places=1)
 
 
 if __name__ == '__main__':

@@ -19,7 +19,7 @@ def Trapecio(fx,a, b, n):
 
 if __name__ == '__main__':
     a, b = 0, 1 #Intervalo inferior, intervalo superior
-    n = 4   #Numero de iteraciones
+    n = 10000   #Numero de iteraciones
 
     resultado = Trapecio(funcion,a, b, n)
     print(resultado)
